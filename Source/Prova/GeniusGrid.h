@@ -20,6 +20,16 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
+
+private:
+
+	UPROPERTY(EditAnywhere)
+		USceneComponent* Root;
+
+	TSubclassOf<class AGenius> BlueGenius;
+	TSubclassOf<class AGenius> RedGenius;
+	TSubclassOf<class AGenius> YellowGenius;
+	TSubclassOf<class AGenius> greenGenius;
 	
 	
 };
