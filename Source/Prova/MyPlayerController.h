@@ -21,4 +21,7 @@ public:
 	AMyPlayerController();
 	
 
+
+	float RandomPercentValues() const;
+
 };

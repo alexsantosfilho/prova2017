@@ -20,19 +20,41 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
+
 	
-	
+	void TimerManager();
+
+	void TimerManagers();
+
+	int GetIndex();
+
 private:
+
+	
 
 
 	UPROPERTY(EditAnywhere)
 	class UPaperSpriteComponent* Sprite;
 
+
+	UPROPERTY(EditAnywhere)
+		class UPaperSprite* SpritePisca;
+
 	UPROPERTY(EditAnywhere)
 		int Index;
 
+	UPROPERTY(EditAnywhere)
+		bool bTurned;
+
 	UFUNCTION()
 		void OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedComponent);
+
+	UFUNCTION()
+	void Pisca();
+
+	FTimerHandle CountdownTimerHandle;
+
+	float CountdownTime;
 
 
 
