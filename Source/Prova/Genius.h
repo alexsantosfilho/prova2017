@@ -30,7 +30,8 @@ public:
 
 private:
 
-	
+	UPROPERTY(EditAnywhere)
+		class UPaperSprite* OpenedSprite;
 
 
 	UPROPERTY(EditAnywhere)

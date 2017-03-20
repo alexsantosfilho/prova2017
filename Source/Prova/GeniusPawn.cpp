@@ -39,3 +39,6 @@ void AGeniusPawn::SetupPlayerInputComponent(class UInputComponent* InputComponen
 
 }
 
+bool AGeniusPawn::IsFreeze() {
+	return bFreeze;
+}

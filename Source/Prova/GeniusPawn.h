@@ -23,6 +23,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
+	bool IsFreeze();
+
 	
 
 private:
@@ -30,4 +32,5 @@ private:
 	UPROPERTY(EditAnywhere)
 		UCameraComponent* Camera;
 	
+	bool bFreeze;
 };

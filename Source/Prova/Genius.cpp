@@ -52,9 +52,9 @@ void AGenius::TimerManager() {
 	Random = FMath::RandRange(1, 4);
 	UWorld *World = GetWorld();
 
-	if (CountdownTime <= -4.005f && World != nullptr) {
+	if (CountdownTime <= -2.005f && World != nullptr) {
 		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
-		UE_LOG(LogTemp, Warning, TEXT("Time Outttt"));
+		UE_LOG(LogTemp, Warning, TEXT("Time Out1"));
 		//Destroy();
 
 
@@ -66,27 +66,41 @@ void AGenius::TimerManager() {
 
 
 		}
-		 if (Random == 2) {
+	}
+
+	if (CountdownTime <= -3.5f && World != nullptr) {
+		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
+		UE_LOG(LogTemp, Warning, TEXT("Time Out2"));
+		if (Random == 2) {
 			Sprite->SetSprite(SpritePisca);
 			UE_LOG(LogTemp, Warning, TEXT("Random 2 ok!"));
-
 		}
-		 if (Random == 3) {
+		}
+
+	if (CountdownTime <= -4.5f && World != nullptr) {
+		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
+		UE_LOG(LogTemp, Warning, TEXT("Time Out3"));
+		if (Random == 3) {
 			Sprite->SetSprite(SpritePisca);
 			UE_LOG(LogTemp, Warning, TEXT("Random 3 ok!"));
-
+		}
 
 		}
-		 if (Random == 4) {
+
+	if (CountdownTime <= -6.005f && World != nullptr) {
+		GetWorldTimerManager().ClearTimer(CountdownTimerHandle);
+		UE_LOG(LogTemp, Warning, TEXT("Time Out4"));
+		if (Random == 4) {
 			Sprite->SetSprite(SpritePisca);
 			UE_LOG(LogTemp, Warning, TEXT("Random 4 ok!"));
 
-
+		}
+	}
 		}
 
-	}
+	
 
-	}
+	
 
 
 
@@ -141,17 +155,21 @@ int AGenius::GetIndex() {
 
 void AGenius::OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedComponent) {
 
-	
+
 	UE_LOG(LogTemp, Warning, TEXT("Touch ok!"));
 
 	UWorld* World = GetWorld();
 	if (World != nullptr) {
 
-		AGeniusPawn* Pawn = Cast<AGeniusPawn>(UGameplayStatics::GetPlayerController(World, 0)->GetControlledPawn());
+		AGeniusPawn* Pawn = Cast<AGeniusPawn>
+			(UGameplayStatics::GetPlayerController
+			(World, 0)->GetControlledPawn());
 
+		if (!bTurned && !Pawn->IsFreeze()) {
+			Sprite->SetSprite(OpenedSprite);
+			bTurned = true;
+		}
 	}
-
-	
 }
 
 void AGenius::Pisca()
